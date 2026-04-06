@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-gold-50: #fdf8ec;
+  --color-gold-100: #faeecb;
+  --color-gold-200: #f5da93;
+  --color-gold-300: #efc059;
+  --color-gold-400: #e8a82e;
+  --color-gold-500: #C9A84C;
+  --color-gold-600: #b8930d;
+  --color-gold-700: #8B6914;
+  --color-gold-800: #715113;
+  --color-gold-900: #5e4116;
+  --color-gold-950: #362106;
+
+  --color-dark-900: #0A0A0A;
+  --color-dark-800: #111111;
+  --color-dark-700: #1A1A1A;
+  --color-dark-600: #222222;
+  --color-dark-500: #2A2A2A;
+  --color-dark-400: #333333;
+
+  /* Fonts */
+  --font-playfair: "Playfair Display", Georgia, serif;
+  --font-inter: Inter, sans-serif;
+
+  /* Box Shadows */
+  --shadow-gold: 0 0 20px rgba(201,168,76,0.3);
+  --shadow-gold-lg: 0 0 40px rgba(201,168,76,0.4);
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.5);
+
+  /* Animations */
+  --animate-fade-in: fadeIn 0.8s ease-in-out;
+  --animate-slide-up: slideUp 0.8s ease-out;
+  --animate-shimmer: shimmer 2s infinite linear;
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes shimmer {
+    from { background-position: -1000px 0; }
+    to { background-position: 1000px 0; }
+  }
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-dark-900);
+  color: white;
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-dark-800); }
+::-webkit-scrollbar-thumb { background: var(--color-gold-600); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-gold-500); }
+
+/* Custom component classes */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background-color: var(--color-gold-500);
+  color: var(--color-dark-900);
+  font-family: var(--font-inter);
+  font-weight: 600;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.btn-gold:hover {
+  background-color: var(--color-gold-400);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  border: 1px solid var(--color-gold-500);
+  color: var(--color-gold-500);
+  font-family: var(--font-inter);
+  font-weight: 600;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.btn-outline-gold:hover {
+  background-color: var(--color-gold-500);
+  color: var(--color-dark-900);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+.section-title {
+  font-family: var(--font-playfair);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: var(--color-gold-500);
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.gold-divider {
+  width: 4rem;
+  height: 2px;
+  background: linear-gradient(135deg, var(--color-gold-500), var(--color-gold-300), var(--color-gold-700));
+  margin: 1.5rem auto;
+}
+
+.card-property {
+  background-color: var(--color-dark-700);
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--color-dark-600);
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.card-property:hover {
+  border-color: var(--color-gold-600);
+  box-shadow: var(--shadow-gold-lg);
+  transform: translateY(-8px);
+}
+
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.glass-gold {
+  background: rgba(201,168,76,0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+.input-field {
+  width: 100%;
+  background-color: var(--color-dark-700);
+  border: 1px solid var(--color-dark-400);
+  color: white;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-inter);
+  font-size: 0.875rem;
+  transition: all 0.3s;
+  outline: none;
+}
+.input-field::placeholder { color: #6b7280; }
+.input-field:focus {
+  border-color: var(--color-gold-500);
+  box-shadow: 0 0 0 1px var(--color-gold-500);
+}
+
+.nav-link {
+  color: #d1d5db;
+  font-family: var(--font-inter);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.nav-link:hover { color: var(--color-gold-500); }
+
+.stat-card {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: rgba(201,168,76,0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #C9A84C, #E8C97A, #C9A84C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #C9A84C, #E8C97A, #8B6914);
+}
+
+.bg-hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.5) 0%,
+    rgba(10, 10, 10, 0.3) 40%,
+    rgba(10, 10, 10, 0.7) 80%,
+    rgba(10, 10, 10, 1) 100%
+  );
+}
+
+.floating-whatsapp {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #22c55e;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transition: all 0.3s;
+}
+.floating-whatsapp:hover {
+  background-color: #4ade80;
+  transform: scale(1.1);
+}

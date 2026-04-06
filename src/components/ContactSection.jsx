@@ -54,15 +54,15 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-dark-900 relative">
+    <section id="contact" className="py-16 sm:py-20 md:py-24 scroll-mt-16 bg-dark-900 relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-500/40 to-transparent" />
 
       {/* BG accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-gold-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <motion.p
             className="section-subtitle"
             initial={{ opacity: 0, y: 20 }}
@@ -82,7 +82,7 @@ export default function ContactSection() {
           </motion.h2>
           <div className="gold-divider" />
           <motion.p
-            className="font-inter text-gray-400 max-w-xl mx-auto text-sm"
+            className="font-inter text-gray-400 max-w-xl mx-auto text-sm px-2"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -92,7 +92,7 @@ export default function ContactSection() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -100,11 +100,11 @@ export default function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h3 className="font-playfair text-2xl text-white font-semibold mb-8">
+            <h3 className="font-playfair text-xl sm:text-2xl text-white font-semibold mb-6 sm:mb-8">
               Reach Out To Us
             </h3>
 
-            <div className="space-y-6 mb-10">
+            <div className="space-y-4 sm:space-y-6 mb-8 sm:mb-10">
               {contactInfo.map((item, i) => {
                 const Icon = item.icon
                 return (
@@ -114,18 +114,18 @@ export default function ContactSection() {
                     target={item.label === 'Website' || item.label === 'Location' ? '_blank' : undefined}
                     rel="noopener noreferrer"
                     id={item.id}
-                    className="flex items-center gap-4 group"
+                    className="flex items-center gap-3 sm:gap-4 group"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
                   >
-                    <div className="w-12 h-12 rounded-xl glass-gold flex items-center justify-center shrink-0 group-hover:bg-gold-500/20 transition-colors duration-300">
-                      <Icon size={18} className="text-gold-500" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl glass-gold flex items-center justify-center shrink-0 group-hover:bg-gold-500/20 transition-colors duration-300">
+                      <Icon size={16} className="text-gold-500 sm:w-[18px] sm:h-[18px]" />
                     </div>
-                    <div>
-                      <p className="font-inter text-gray-500 text-[11px] tracking-wider uppercase mb-0.5">{item.label}</p>
-                      <p className="font-inter text-white text-sm group-hover:text-gold-400 transition-colors">{item.value}</p>
+                    <div className="min-w-0">
+                      <p className="font-inter text-gray-500 text-[10px] sm:text-[11px] tracking-wider uppercase mb-0.5">{item.label}</p>
+                      <p className="font-inter text-white text-xs sm:text-sm group-hover:text-gold-400 transition-colors truncate">{item.value}</p>
                     </div>
                   </motion.a>
                 )
@@ -160,23 +160,23 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="glass rounded-3xl p-8 border border-dark-600 hover:border-gold-800 transition-colors duration-500"
+            className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-dark-600 hover:border-gold-800 transition-colors duration-500"
           >
             {submitted ? (
               <motion.div
-                className="flex flex-col items-center justify-center h-full py-12 text-center"
+                className="flex flex-col items-center justify-center h-full py-10 sm:py-12 text-center"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
               >
-                <CheckCircle size={56} className="text-gold-500 mb-4" />
-                <h4 className="font-playfair text-2xl text-white font-semibold mb-2">Message Sent!</h4>
+                <CheckCircle size={48} className="text-gold-500 mb-4 sm:w-14 sm:h-14" />
+                <h4 className="font-playfair text-xl sm:text-2xl text-white font-semibold mb-2">Message Sent!</h4>
                 <p className="font-inter text-gray-400 text-sm">
                   Our team will contact you within 24 hours.
                 </p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" id="contact-form">
-                <h3 className="font-playfair text-xl text-white font-semibold mb-6">Send us a Message</h3>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-5" id="contact-form">
+                <h3 className="font-playfair text-lg sm:text-xl text-white font-semibold mb-4 sm:mb-6">Send us a Message</h3>
 
                 {/* Name */}
                 <div>
@@ -184,7 +184,7 @@ export default function ContactSection() {
                     Full Name *
                   </label>
                   <div
-                    className={`flex items-center gap-3 rounded-xl px-4 py-3 border transition-all duration-300
+                    className={`flex items-center gap-2.5 sm:gap-3 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 border transition-all duration-300
                       ${errors.name
                         ? 'border-red-500 bg-dark-700'
                         : 'border-dark-400 bg-dark-700 focus-within:border-gold-500'
@@ -196,7 +196,7 @@ export default function ContactSection() {
                       type="text"
                       placeholder="Your full name"
                       {...register('name', { required: 'Name is required' })}
-                      className="bg-transparent flex-1 text-white text-sm placeholder-gray-500 outline-none font-inter"
+                      className="bg-transparent flex-1 text-white text-sm placeholder-gray-500 outline-none font-inter min-w-0"
                     />
                   </div>
                   {errors.name && (
@@ -210,7 +210,7 @@ export default function ContactSection() {
                     Phone Number *
                   </label>
                   <div
-                    className={`flex items-center gap-3 rounded-xl px-4 py-3 border transition-all duration-300
+                    className={`flex items-center gap-2.5 sm:gap-3 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 border transition-all duration-300
                       ${errors.phone
                         ? 'border-red-500 bg-dark-700'
                         : 'border-dark-400 bg-dark-700 focus-within:border-gold-500'
@@ -225,7 +225,7 @@ export default function ContactSection() {
                         required: 'Phone is required',
                         pattern: { value: /^[6-9]\d{9}$/, message: 'Enter a valid 10-digit Indian mobile number' },
                       })}
-                      className="bg-transparent flex-1 text-white text-sm placeholder-gray-500 outline-none font-inter"
+                      className="bg-transparent flex-1 text-white text-sm placeholder-gray-500 outline-none font-inter min-w-0"
                     />
                   </div>
                   {errors.phone && (
@@ -239,7 +239,7 @@ export default function ContactSection() {
                     Email Address
                   </label>
                   <div
-                    className={`flex items-center gap-3 rounded-xl px-4 py-3 border transition-all duration-300
+                    className={`flex items-center gap-2.5 sm:gap-3 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 border transition-all duration-300
                       ${errors.email
                         ? 'border-red-500 bg-dark-700'
                         : 'border-dark-400 bg-dark-700 focus-within:border-gold-500'
@@ -253,7 +253,7 @@ export default function ContactSection() {
                       {...register('email', {
                         pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Enter a valid email address' },
                       })}
-                      className="bg-transparent flex-1 text-white text-sm placeholder-gray-500 outline-none font-inter"
+                      className="bg-transparent flex-1 text-white text-sm placeholder-gray-500 outline-none font-inter min-w-0"
                     />
                   </div>
                   {errors.email && (
@@ -269,7 +269,7 @@ export default function ContactSection() {
                   <select
                     id="form-interest"
                     {...register('interest')}
-                    className="w-full bg-dark-700 border border-dark-400 text-white rounded-xl px-4 py-3
+                    className="w-full bg-dark-700 border border-dark-400 text-white rounded-xl px-3 sm:px-4 py-2.5 sm:py-3
                                focus:outline-none focus:border-gold-500 transition-all duration-300
                                font-inter text-sm"
                     style={{ color: '#9E9E9E' }}
@@ -290,7 +290,7 @@ export default function ContactSection() {
                     Message
                   </label>
                   <div
-                    className="flex items-start gap-3 rounded-xl px-4 py-3 border border-dark-400
+                    className="flex items-start gap-2.5 sm:gap-3 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 border border-dark-400
                                bg-dark-700 focus-within:border-gold-500 transition-all duration-300"
                   >
                     <MessageSquare size={15} className="text-gray-500 shrink-0 mt-0.5" />
@@ -299,7 +299,7 @@ export default function ContactSection() {
                       rows={3}
                       placeholder="Tell us about your property requirements..."
                       {...register('message')}
-                      className="bg-transparent flex-1 text-white text-sm placeholder-gray-500 outline-none resize-none font-inter"
+                      className="bg-transparent flex-1 text-white text-sm placeholder-gray-500 outline-none resize-none font-inter min-w-0"
                     />
                   </div>
                 </div>

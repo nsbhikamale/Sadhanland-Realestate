@@ -38,10 +38,10 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 md:pt-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 sm:pt-28 md:pt-32">
         {/* Location badge */}
         <motion.div
-          className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-8"
+          className="inline-flex items-center gap-2 glass px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-6 sm:mb-8"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -49,7 +49,7 @@ export default function HeroSection() {
           {/* Mini logo in badge */}
           <div
             className="rounded flex items-center justify-center overflow-hidden"
-            style={{ width: 20, height: 20, background: '#132248' }}
+            style={{ width: 18, height: 18, background: '#132248' }}
           >
             <img
               src="/images/logo-icon.png"
@@ -57,27 +57,27 @@ export default function HeroSection() {
               className="w-full h-full object-contain"
             />
           </div>
-          <span className="font-inter text-xs text-gray-300 tracking-wider uppercase">
+          <span className="font-inter text-[10px] sm:text-xs text-gray-300 tracking-wider uppercase">
             Kalaburagi, Karnataka
           </span>
         </motion.div>
 
         {/* Subtext */}
         <motion.p
-          className="section-subtitle text-base mb-4"
+          className="section-subtitle text-sm sm:text-base mb-3 sm:mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          ✦ Trusted Real Estate Partner ✦
+          ✦ Premium Homes in Kalaburagi ✦
         </motion.p>
 
         {/* Animated Headline - word by word */}
-        <h1 className="font-playfair text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+        <h1 className="font-playfair text-[1.6rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-5 sm:mb-6">
           {words.map((word, i) => (
             <motion.span
               key={i}
-              className={`inline-block mr-3 md:mr-4 ${
+              className={`inline-block mr-[0.35rem] sm:mr-3 md:mr-4 ${
                 word === 'Dream' || word === 'Kalaburagi'
                   ? 'text-gradient-gold'
                   : 'text-white'
@@ -98,54 +98,61 @@ export default function HeroSection() {
 
         {/* Description */}
         <motion.p
-          className="font-inter text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="font-inter text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.1 }}
         >
-          Discover premium residential and commercial properties tailored to your vision.
-          Your dream home awaits in the heart of Kalaburagi.
+          Discover handcrafted independent 2BHK homes built with quality and care.
+          Your dream home in Kalaburagi is waiting — schedule a visit today!
         </motion.p>
 
         {/* CTA Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.3 }}
         >
           <button
             onClick={scrollToProperties}
-            className="btn-gold group"
+            className="btn-gold group w-full sm:w-auto justify-center"
             id="hero-view-properties"
           >
             View Properties
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </button>
-          <button
-            onClick={scrollToContact}
-            className="btn-outline-gold"
+          <a
+            href="https://wa.me/919164322355?text=Hi%2C%20I%27m%20interested%20in%20a%20property%20at%20Sadhanland%20Realestate.%20Please%20share%20details."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline-gold w-full sm:w-auto justify-center"
             id="hero-contact-us"
           >
-            Contact Us
-          </button>
+            💬 WhatsApp Us
+          </a>
         </motion.div>
 
         {/* Stats row */}
         <motion.div
-          className="grid grid-cols-3 gap-4 md:gap-8 max-w-md mx-auto mt-16"
+          className="grid grid-cols-3 gap-3 sm:flex sm:justify-center sm:items-stretch sm:gap-6 md:gap-8 mt-10 sm:mt-16 px-0 sm:px-2"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.5 }}
         >
           {[
-            { num: '500+', label: 'Properties' },
-            { num: '10+', label: 'Years' },
-            { num: '1000+', label: 'Clients' },
+            { num: '2BHK', label: 'Premium Homes' },
+            { num: '100%', label: 'Transparent' },
+            { num: '✓', label: 'Ready to Move' },
           ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="font-playfair text-2xl md:text-3xl text-gradient-gold font-bold">{stat.num}</p>
-              <p className="font-inter text-gray-400 text-xs tracking-wide uppercase mt-1">{stat.label}</p>
+            <div
+              key={stat.label}
+              className="text-center glass rounded-xl sm:rounded-2xl px-2 sm:px-6 md:px-8 py-3 sm:py-5 sm:flex-1 sm:max-w-[160px]"
+            >
+              <p className="font-playfair text-2xl sm:text-3xl md:text-4xl text-gradient-gold font-bold leading-none">
+                {stat.num}
+              </p>
+              <p className="font-inter text-gray-400 text-[8px] sm:text-[10px] md:text-xs tracking-wider uppercase mt-1 sm:mt-2 leading-tight">{stat.label}</p>
             </div>
           ))}
         </motion.div>
@@ -153,7 +160,7 @@ export default function HeroSection() {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.6 }}

@@ -7,7 +7,7 @@ const navLinks = [
   { label: 'Properties', href: '#properties' },
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
-  { label: 'Gallery', href: '#gallery' },
+  { label: 'Why Us', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -20,6 +20,16 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [mobileOpen])
 
   const handleNavClick = (href) => {
     setMobileOpen(false)
@@ -53,7 +63,7 @@ export default function Navbar() {
                   style={{ boxShadow: '0 0 18px 4px rgba(201,168,76,0.45)' }}
                 />
                 <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center relative z-10
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center relative z-10
                              group-hover:scale-105 transition-transform duration-300 overflow-hidden"
                   style={{ background: '#132248' }}
                 >
@@ -67,11 +77,11 @@ export default function Navbar() {
 
               {/* Brand text */}
               <div className="leading-none">
-                <p className="font-playfair text-white text-[15px] font-bold tracking-wide leading-tight">
+                <p className="font-playfair text-white text-[14px] sm:text-[15px] font-bold tracking-wide leading-tight">
                   SADHANLAND
                 </p>
                 <p
-                  className="font-inter text-[9px] tracking-[0.22em] uppercase leading-tight mt-0.5"
+                  className="font-inter text-[8px] sm:text-[9px] tracking-[0.22em] uppercase leading-tight mt-0.5"
                   style={{ color: '#C9A84C' }}
                 >
                   Real Estate
@@ -94,7 +104,8 @@ export default function Navbar() {
             </div>
 
             {/* CTA + Hamburger */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
+              {/* Phone - desktop only */}
               <a
                 href="tel:9164322355"
                 className="hidden md:flex items-center gap-2 text-sm font-inter font-medium transition-colors duration-300"
@@ -103,20 +114,26 @@ export default function Navbar() {
                 <Phone size={14} />
                 9164322355
               </a>
+              {/* Enquire button - desktop only. Wrapped in a div to prevent .btn-gold display from overriding hidden */}
+              <div className="hidden md:block">
+                <a
+                  href="https://wa.me/919164322355?text=Hi%2C%20I%27m%20interested%20in%20a%20property%20at%20Sadhanland%20Realestate."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-gold text-xs px-5 py-2"
+                  id="nav-enquire-btn"
+                >
+                  Enquire Now
+                </a>
+              </div>
+              {/* Hamburger - mobile only */}
               <button
-                onClick={() => handleNavClick('#contact')}
-                className="hidden md:inline-flex btn-gold text-xs px-5 py-2"
-                id="nav-enquire-btn"
-              >
-                Enquire Now
-              </button>
-              <button
-                className="md:hidden text-white p-1"
+                className="md:hidden text-white p-2 -mr-2"
                 onClick={() => setMobileOpen(!mobileOpen)}
                 id="mobile-menu-btn"
                 aria-label="Toggle menu"
               >
-                {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+                {mobileOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
           </div>
@@ -127,7 +144,7 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="fixed inset-0 z-40 backdrop-blur-xl pt-24 px-6 flex flex-col"
+            className="fixed inset-0 z-40 backdrop-blur-xl pt-20 px-6 flex flex-col"
             style={{ background: 'rgba(10,10,10,0.97)' }}
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
@@ -148,12 +165,12 @@ export default function Navbar() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-5">
               {navLinks.map((link, i) => (
                 <motion.button
                   key={link.label}
                   onClick={() => handleNavClick(link.href)}
-                  className="font-playfair text-3xl text-left text-white hover:text-gold-500 transition-colors"
+                  className="font-playfair text-2xl sm:text-3xl text-left text-white hover:text-gold-500 transition-colors"
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.07 }}
@@ -163,7 +180,15 @@ export default function Navbar() {
                 </motion.button>
               ))}
             </div>
-            <div className="mt-auto mb-12">
+            <div className="mt-auto mb-10">
+              <a
+                href="https://wa.me/919164322355?text=Hi%2C%20I%27m%20interested%20in%20a%20property%20at%20Sadhanland%20Realestate."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold w-full justify-center mb-4"
+              >
+                💬 WhatsApp Us
+              </a>
               <p className="text-gray-500 text-sm mb-2 font-inter">Call Us</p>
               <a href="tel:9164322355" className="font-playfair text-2xl font-semibold" style={{ color: '#C9A84C' }}>
                 9164322355

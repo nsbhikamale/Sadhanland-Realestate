@@ -37,12 +37,12 @@ const galleryImages = [
 
 export default function GallerySlider() {
   return (
-    <section id="gallery" className="py-24 bg-dark-800 relative overflow-hidden">
+    <section id="gallery" className="py-16 sm:py-20 md:py-24 scroll-mt-16 bg-dark-800 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-500/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <motion.p
             className="section-subtitle"
             initial={{ opacity: 0, y: 20 }}
@@ -69,7 +69,7 @@ export default function GallerySlider() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative rounded-3xl overflow-hidden shadow-card border border-dark-600"
+          className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-card border border-dark-600"
         >
           <Swiper
             modules={[Autoplay, Navigation, Pagination]}
@@ -83,16 +83,16 @@ export default function GallerySlider() {
           >
             {galleryImages.map((img, i) => (
               <SwiperSlide key={i}>
-                <div className="relative h-[400px] md:h-[550px]">
+                <div className="relative h-[280px] sm:h-[400px] md:h-[550px]">
                   <img
                     src={img.src}
                     alt={img.caption}
                     className="w-full h-full object-cover"
                   />
                   {/* Caption overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-dark-900/90 to-transparent">
-                    <p className="font-inter text-gold-500 text-xs tracking-widest uppercase mb-1">{img.subtitle}</p>
-                    <h3 className="font-playfair text-white text-2xl md:text-3xl font-semibold">{img.caption}</h3>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 bg-gradient-to-t from-dark-900/90 to-transparent">
+                    <p className="font-inter text-gold-500 text-[10px] sm:text-xs tracking-widest uppercase mb-0.5 sm:mb-1">{img.subtitle}</p>
+                    <h3 className="font-playfair text-white text-lg sm:text-2xl md:text-3xl font-semibold">{img.caption}</h3>
                   </div>
                 </div>
               </SwiperSlide>
@@ -100,12 +100,14 @@ export default function GallerySlider() {
           </Swiper>
         </motion.div>
 
-        {/* Thumbnail row */}
-        <div className="grid grid-cols-5 gap-3 mt-4">
+        {/* Thumbnail row — 3 cols mobile, 5 cols sm+ */}
+        <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 sm:gap-3 mt-3 sm:mt-4">
           {galleryImages.map((img, i) => (
             <div
               key={i}
-              className="rounded-xl overflow-hidden h-16 md:h-20 border border-dark-600 hover:border-gold-500 transition-colors duration-300 cursor-pointer"
+              className={`rounded-lg sm:rounded-xl overflow-hidden h-14 sm:h-16 md:h-20 border border-dark-600 hover:border-gold-500 transition-colors duration-300 cursor-pointer ${
+                i >= 3 ? 'hidden sm:block' : ''
+              }`}
             >
               <img src={img.src} alt={img.caption} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
             </div>
@@ -118,14 +120,27 @@ export default function GallerySlider() {
         .gallery-swiper .swiper-button-prev {
           color: #C9A84C;
           background: rgba(10,10,10,0.6);
-          width: 44px;
-          height: 44px;
+          width: 36px;
+          height: 36px;
           border-radius: 50%;
           border: 1px solid rgba(201,168,76,0.3);
         }
+        @media (min-width: 640px) {
+          .gallery-swiper .swiper-button-next,
+          .gallery-swiper .swiper-button-prev {
+            width: 44px;
+            height: 44px;
+          }
+        }
         .gallery-swiper .swiper-button-next::after,
         .gallery-swiper .swiper-button-prev::after {
-          font-size: 16px;
+          font-size: 14px;
+        }
+        @media (min-width: 640px) {
+          .gallery-swiper .swiper-button-next::after,
+          .gallery-swiper .swiper-button-prev::after {
+            font-size: 16px;
+          }
         }
         .gallery-swiper .swiper-pagination-bullet {
           background: #C9A84C;

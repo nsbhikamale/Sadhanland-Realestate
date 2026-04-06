@@ -42,13 +42,13 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-24 bg-dark-900 relative">
+    <section id="services" className="py-16 sm:py-20 md:py-24 scroll-mt-16 bg-dark-900 relative">
       {/* Top border accent */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-500/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <motion.p
             className="section-subtitle"
             initial={{ opacity: 0, y: 20 }}
@@ -68,25 +68,25 @@ export default function ServicesSection() {
           </motion.h2>
           <div className="gold-divider" />
           <motion.p
-            className="font-inter text-gray-400 max-w-xl mx-auto text-sm"
+            className="font-inter text-gray-400 max-w-xl mx-auto text-sm px-2"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            From buying your first home to building a property portfolio — we cover every aspect of real estate.
+            Whether you're a first-time buyer or an investor — we are here to guide you with honesty and care, every step of the way.
           </motion.p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
           {services.map((service, i) => {
             const Icon = service.icon
             return (
               <motion.div
                 key={service.id}
                 id={`service-${service.id}`}
-                className="relative group bg-dark-700 border border-dark-600 hover:border-gold-600 rounded-2xl p-7 overflow-hidden
+                className="relative group bg-dark-700 border border-dark-600 hover:border-gold-600 rounded-2xl p-5 sm:p-7 overflow-hidden
                            transition-all duration-500 hover:shadow-gold hover:-translate-y-2"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -97,24 +97,24 @@ export default function ServicesSection() {
                 <div className={`absolute inset-0 bg-gradient-to-b ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
                 {/* Icon */}
-                <div className="relative z-10 mb-6">
-                  <div className="w-14 h-14 rounded-2xl glass-gold flex items-center justify-center
+                <div className="relative z-10 mb-4 sm:mb-6">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl glass-gold flex items-center justify-center
                                 group-hover:bg-gold-500/20 transition-colors duration-300">
-                    <Icon className="text-gold-500" size={26} />
+                    <Icon className="text-gold-500" size={22} />
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <h3 className="font-playfair text-white text-xl font-semibold mb-3 group-hover:text-gold-400 transition-colors">
+                  <h3 className="font-playfair text-white text-lg sm:text-xl font-semibold mb-2 sm:mb-3 group-hover:text-gold-400 transition-colors">
                     {service.title}
                   </h3>
-                  <p className="font-inter text-gray-400 text-sm leading-relaxed mb-5">
+                  <p className="font-inter text-gray-400 text-sm leading-relaxed mb-4 sm:mb-5">
                     {service.description}
                   </p>
 
                   {/* Highlights */}
-                  <ul className="space-y-2">
+                  <ul className="space-y-1.5 sm:space-y-2">
                     {service.highlights.map((h, j) => (
                       <li key={j} className="font-inter text-xs text-gray-500 flex items-center gap-2">
                         <span className="w-1 h-1 rounded-full bg-gold-500 shrink-0" />
@@ -125,7 +125,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Arrow indicator */}
-                <div className="relative z-10 mt-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                <div className="relative z-10 mt-4 sm:mt-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                   <a href="tel:9164322355" className="text-gold-500 font-inter text-xs font-semibold">
                     Get Started →
                   </a>

@@ -4,7 +4,7 @@ import HeroSection from './components/HeroSection'
 import FeaturedProperties from './components/FeaturedProperties'
 import AboutSection from './components/AboutSection'
 import ServicesSection from './components/ServicesSection'
-import GallerySlider from './components/GallerySlider'
+import WhyChooseUs from './components/WhyChooseUs'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
@@ -28,7 +28,7 @@ function App() {
         <FeaturedProperties />
         <AboutSection />
         <ServicesSection />
-        <GallerySlider />
+        <WhyChooseUs />
         <ContactSection />
       </main>
       <Footer />

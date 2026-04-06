@@ -28,7 +28,7 @@ const navLinks = [
   { label: 'Properties', href: '#properties' },
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
-  { label: 'Gallery', href: '#gallery' },
+  { label: 'Why Us', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -45,18 +45,18 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-dark-800 border-t border-dark-600 pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+    <footer className="bg-dark-800 border-t border-dark-600 pt-12 sm:pt-16 pb-6 sm:pb-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-12">
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="sm:col-span-2 lg:col-span-2">
             {/* Logo + Brand */}
-            <div className="flex items-center gap-4 mb-5">
+            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
               <div
-                className="relative flex-shrink-0 rounded-2xl overflow-hidden flex items-center justify-center"
+                className="relative flex-shrink-0 rounded-xl sm:rounded-2xl overflow-hidden flex items-center justify-center"
                 style={{
-                  width: 56,
-                  height: 56,
+                  width: 48,
+                  height: 48,
                   background: '#132248',
                   boxShadow: '0 0 20px rgba(201,168,76,0.35)',
                 }}
@@ -68,15 +68,15 @@ export default function Footer() {
                 />
               </div>
               <div className="leading-none">
-                <h2 className="font-playfair text-white text-base font-bold tracking-wide">SADHANLAND</h2>
-                <p className="font-inter text-[9px] tracking-[0.22em] uppercase mt-1" style={{ color: '#C9A84C' }}>
+                <h2 className="font-playfair text-white text-sm sm:text-base font-bold tracking-wide">SADHANLAND</h2>
+                <p className="font-inter text-[8px] sm:text-[9px] tracking-[0.22em] uppercase mt-1" style={{ color: '#C9A84C' }}>
                   Real Estate
                 </p>
               </div>
             </div>
-            <p className="font-inter text-gray-400 text-sm leading-relaxed mb-6 max-w-sm">
-              Your trusted real estate partner in Kalaburagi. We help you find, buy, sell, and invest in
-              properties that match your dreams and financial goals.
+            <p className="font-inter text-gray-400 text-sm leading-relaxed mb-5 sm:mb-6 max-w-sm">
+              Your trusted real estate partner in Kalaburagi — specializing in premium
+              independent 2BHK homes with 100% transparent dealings.
             </p>
 
             {/* Social */}
@@ -89,7 +89,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   id={social.id}
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-full glass-gold flex items-center justify-center hover:bg-gold-500/20 transition-all duration-300 text-gray-400 hover:text-gold-500"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-gold flex items-center justify-center hover:bg-gold-500/20 transition-all duration-300 text-gray-400 hover:text-gold-500"
                 >
                   <social.Icon />
                 </a>
@@ -99,10 +99,10 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-inter font-semibold text-white text-sm tracking-wider uppercase mb-5">
+            <h4 className="font-inter font-semibold text-white text-sm tracking-wider uppercase mb-4 sm:mb-5">
               Quick Links
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5 sm:space-y-3">
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <button
@@ -120,31 +120,31 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-inter font-semibold text-white text-sm tracking-wider uppercase mb-5">
+            <h4 className="font-inter font-semibold text-white text-sm tracking-wider uppercase mb-4 sm:mb-5">
               Contact Info
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               <li>
-                <a href="tel:9164322355" className="flex items-start gap-3 group" id="footer-phone">
-                  <Phone size={15} className="text-gold-500 shrink-0 mt-0.5" />
+                <a href="tel:9164322355" className="flex items-start gap-2.5 sm:gap-3 group" id="footer-phone">
+                  <Phone size={14} className="text-gold-500 shrink-0 mt-0.5" />
                   <span className="font-inter text-gray-400 text-sm group-hover:text-gold-400 transition-colors">9164322355</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:sadhanlandinfo@gmail.com" className="flex items-start gap-3 group" id="footer-email">
-                  <Mail size={15} className="text-gold-500 shrink-0 mt-0.5" />
-                  <span className="font-inter text-gray-400 text-sm group-hover:text-gold-400 transition-colors break-all">sadhanlandinfo@gmail.com</span>
+                <a href="mailto:sadhanlandinfo@gmail.com" className="flex items-start gap-2.5 sm:gap-3 group" id="footer-email">
+                  <Mail size={14} className="text-gold-500 shrink-0 mt-0.5" />
+                  <span className="font-inter text-gray-400 text-xs sm:text-sm group-hover:text-gold-400 transition-colors break-all">sadhanlandinfo@gmail.com</span>
                 </a>
               </li>
               <li>
-                <a href="https://www.sadhanland.com" className="flex items-start gap-3 group" id="footer-website">
-                  <Globe size={15} className="text-gold-500 shrink-0 mt-0.5" />
+                <a href="https://www.sadhanland.com" className="flex items-start gap-2.5 sm:gap-3 group" id="footer-website">
+                  <Globe size={14} className="text-gold-500 shrink-0 mt-0.5" />
                   <span className="font-inter text-gray-400 text-sm group-hover:text-gold-400 transition-colors">www.sadhanland.com</span>
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-3">
-                  <MapPin size={15} className="text-gold-500 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2.5 sm:gap-3">
+                  <MapPin size={14} className="text-gold-500 shrink-0 mt-0.5" />
                   <span className="font-inter text-gray-400 text-sm">Kalaburagi, Karnataka — 585101</span>
                 </div>
               </li>
@@ -153,8 +153,8 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-dark-600 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-inter text-gray-500 text-xs">
+        <div className="border-t border-dark-600 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+          <p className="font-inter text-gray-500 text-xs text-center sm:text-left">
             © {new Date().getFullYear()} Sadhanland Realestate. All Rights Reserved.
           </p>
           <p className="font-inter text-gray-600 text-xs">

@@ -151,20 +151,6 @@ export default function Navbar() {
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.35, ease: 'easeInOut' }}
           >
-            {/* Mobile logo */}
-            <div className="flex items-center gap-3 mb-10">
-              <div
-                className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center"
-                style={{ background: '#132248', boxShadow: '0 0 16px rgba(201,168,76,0.4)' }}
-              >
-                <img src="/images/logo-icon.png" alt="Sadhanland" className="w-full h-full object-contain p-1" />
-              </div>
-              <div>
-                <p className="font-playfair text-white text-base font-bold">SADHANLAND</p>
-                <p className="font-inter text-[9px] tracking-widest uppercase" style={{ color: '#C9A84C' }}>Real Estate</p>
-              </div>
-            </div>
-
             <div className="flex flex-col gap-5">
               {navLinks.map((link, i) => (
                 <motion.button

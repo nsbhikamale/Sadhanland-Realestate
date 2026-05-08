@@ -41,13 +41,37 @@ export default function ContactSection() {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm()
 
-  const onSubmit = async (data) => {
-    // Simulate form submission (replace with real API call)
-    await new Promise((res) => setTimeout(res, 1000))
-    console.log('Form data:', data)
+  const onSubmit = (data) => {
+    const separator = '─────────────────────'
+    const lines = [
+      `🏡 *SADHANLAND REALESTATE*`,
+      `📋 *New Property Enquiry*`,
+      separator,
+      ``,
+      `Hello Team Sadhanland,`,
+      ``,
+      `I came across your listings on *www.sadhanland.com* and would like to enquire about a property. Please find my details below.`,
+      ``,
+      `*📌 CONTACT INFORMATION*`,
+      `• *Name:*   ${data.name}`,
+      `• *Phone:* ${data.phone}`,
+      data.email    ? `• *Email:*  ${data.email}` : null,
+      ``,
+      data.interest ? `*🏠 PROPERTY INTEREST*\n• ${data.interest}` : null,
+      data.message  ? `\n*💬 ADDITIONAL REQUIREMENTS*\n${data.message}` : null,
+      ``,
+      separator,
+      `📍 _Sent via sadhanland.com_`,
+    ]
+      .filter((l) => l !== null)
+      .join('\n')
+
+    const waUrl = `https://wa.me/919164322355?text=${encodeURIComponent(lines)}`
+    window.open(waUrl, '_blank', 'noopener,noreferrer')
+
     setSubmitted(true)
     reset()
     setTimeout(() => setSubmitted(false), 5000)
@@ -306,24 +330,11 @@ export default function ContactSection() {
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
                   id="form-submit-btn"
-                  className="btn-gold w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="btn-gold w-full justify-center"
                 >
-                  {isSubmitting ? (
-                    <span className="flex items-center gap-2">
-                      <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.4 0 0 5.4 0 12h4z"/>
-                      </svg>
-                      Sending...
-                    </span>
-                  ) : (
-                    <>
-                      <Send size={15} />
-                      Send Message
-                    </>
-                  )}
+                  <Send size={15} />
+                  Send via WhatsApp
                 </button>
               </form>
             )}

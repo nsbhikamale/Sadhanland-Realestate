@@ -77,11 +77,10 @@ export default function HeroSection() {
           {words.map((word, i) => (
             <motion.span
               key={i}
-              className={`inline-block mr-[0.35rem] sm:mr-3 md:mr-4 ${
-                word === 'Dream' || word === 'Kalaburagi'
+              className={`inline-block mr-[0.35rem] sm:mr-3 md:mr-4 ${word === 'Dream' || word === 'Kalaburagi'
                   ? 'text-gradient-gold'
                   : 'text-white'
-              }`}
+                }`}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -103,8 +102,8 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.1 }}
         >
-          Discover handcrafted independent 2BHK homes built with quality and care.
-          Your dream home in Kalaburagi is waiting — schedule a visit today!
+          Explore handcrafted homes, premium apartments, GDA-approved plots
+          and more — all in Kalaburagi's finest locations. Your ideal property is waiting!
         </motion.p>
 
         {/* CTA Buttons */}
@@ -141,7 +140,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 1.5 }}
         >
           {[
-            { num: '2BHK', label: 'Premium Homes' },
+            { num: '100+', label: 'Enquiries' },
             { num: '100%', label: 'Transparent' },
             { num: '✓', label: 'Ready to Move' },
           ].map((stat) => (

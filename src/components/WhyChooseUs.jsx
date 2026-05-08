@@ -27,7 +27,7 @@ const reasons = [
     icon: Clock,
     title: 'Ready to Move In',
     description:
-      'Our 2BHK homes are fully built and ready. No waiting months for construction — visit, love it, and move in.',
+      'Our properties are fully built and inspection-ready. No long waits — visit, love it, and make it yours.',
     accent: 'from-emerald-500/10 to-transparent',
   },
   {

@@ -144,7 +144,7 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="fixed inset-0 z-40 backdrop-blur-xl pt-20 px-6 flex flex-col"
+            className="fixed inset-0 z-40 backdrop-blur-xl pt-20 pb-6 px-6 flex flex-col overflow-y-auto"
             style={{ background: 'rgba(10,10,10,0.97)' }}
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
@@ -166,7 +166,7 @@ export default function Navbar() {
                 </motion.button>
               ))}
             </div>
-            <div className="mt-auto mb-10">
+            <div className="mt-auto pt-16 mb-4">
               <a
                 href="https://wa.me/919164322355?text=Hi%2C%20I%27m%20interested%20in%20a%20property%20at%20Sadhanland%20Realestate."
                 target="_blank"

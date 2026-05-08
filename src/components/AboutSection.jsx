@@ -29,7 +29,7 @@ function AnimatedCounter({ target, suffix = '' }) {
 }
 
 const stats = [
-  { label: 'Premium Homes', value: 2, suffix: '' },
+  { label: 'Premium Homes', value: 5, suffix: '' },
   { label: 'Happy Families', value: 100, suffix: '%' },
   { label: 'Transparent Deals', value: 100, suffix: '%' },
   { label: 'Locations', value: 1, suffix: '' },
@@ -82,8 +82,9 @@ export default function AboutSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.6, type: 'spring' }}
             >
-              <p className="font-playfair text-3xl sm:text-4xl text-gradient-gold font-bold">2BHK</p>
-              <p className="font-inter text-gray-300 text-[10px] sm:text-xs mt-1 leading-snug">Independent Homes Ready to Move</p>
+              <p className="font-playfair text-3xl sm:text-4xl text-gradient-gold font-bold leading-none">5+</p>
+              <p className="font-inter text-gold-400 text-[9px] sm:text-[10px] tracking-widest uppercase mt-1">Properties</p>
+              <p className="font-inter text-gray-300 text-[10px] sm:text-xs mt-1 leading-snug">Listed in Kalaburagi</p>
             </motion.div>
             {/* Corner accent - hidden on mobile */}
             <div className="hidden sm:block absolute -top-4 -left-4 w-16 h-16 border-l-2 border-t-2 border-gold-500 rounded-tl-2xl" />
@@ -106,9 +107,9 @@ export default function AboutSection() {
 
             <p className="font-inter text-gray-400 text-sm leading-relaxed mb-4 sm:mb-6">
               At Sadhanland Realestate, we believe every family deserves a beautiful
-              home. We specialize in crafting premium independent 2BHK houses in
-              Kalaburagi — designed with modern aesthetics, quality materials, and
-              attention to every detail.
+              home. We specialize in premium properties across Kalaburagi — from
+              independent houses and apartments to GDA-approved plots — designed
+              with modern aesthetics, quality materials, and attention to every detail.
             </p>
 
             <p className="font-inter text-gray-400 text-sm leading-relaxed mb-6 sm:mb-8">

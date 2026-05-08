@@ -12,7 +12,12 @@ const properties = [
     area: 'Contact for Details',
     badge: 'Available Now',
     category: '2BHK',
-    image: '/images/property1.png',
+    images: [
+      { src: '/images/house1_img3.jpg', label: 'Front Elevation',  position: 'center 40%' },
+      { src: '/images/house1_img1.png', label: 'Living Room',       position: 'center 30%' },
+      { src: '/images/house1_img2.jpg', label: 'Interior View',     position: 'center 50%' },
+      { src: '/images/property1.png',   label: 'Main Entrance',     position: 'center 50%' },
+    ],
   },
   {
     id: 2,
@@ -23,11 +28,67 @@ const properties = [
     area: 'Contact for Details',
     badge: 'Ready to Move',
     category: '2BHK',
-    image: '/images/property2.png',
+    images: [
+      { src: '/images/house2_img3.jpg', label: 'Front Elevation', position: 'center 55%' },
+      { src: '/images/house2_img4.png', label: 'Living Room',      position: 'center 50%' },
+      { src: '/images/house2_img2.jpg', label: 'Bedroom Door',     position: 'center 40%' },
+      { src: '/images/house2_img1.png', label: 'Interior View',    position: 'center 45%' },
+    ],
+  },
+  {
+    id: 3,
+    title: '2BHK Flat in Apartment',
+    location: 'Kalaburagi, Karnataka',
+    price: 'Contact for Price',
+    type: '2 BHK',
+    area: 'Contact for Details',
+    badge: 'Under Construction',
+    category: 'Apartment',
+    images: [
+      { src: '/images/apt1_elevation.jpg',     label: 'Building Elevation',  position: 'center 50%' },
+      { src: '/images/apt1_floorplan.jpg',     label: '3D Floor Plan',       position: 'center 50%' },
+      { src: '/images/apt1_construction3.jpg', label: 'Construction View',   position: 'center 45%' },
+      { src: '/images/apt1_construction1.jpg', label: 'Slab & Columns',      position: 'center 40%' },
+      { src: '/images/apt1_construction2.jpg', label: 'Site Progress',       position: 'center 45%' },
+    ],
+  },
+  {
+    id: 4,
+    title: '2 Floor Independent House for Sale',
+    location: 'Kalaburagi, Karnataka',
+    price: 'Contact for Price',
+    type: '4 BHK',
+    area: 'G+1 | 2 Floors',
+    badge: 'Premium Property',
+    category: 'Resale',
+    images: [
+      { src: '/images/h3_elevation.jpg', label: 'Front Elevation', position: 'center 55%' },
+      { src: '/images/h3_living.jpg',    label: 'Living & Dining', position: 'center 50%' },
+      { src: '/images/h3_bedroom.jpg',   label: 'Bedroom',         position: 'center 40%' },
+      { src: '/images/h3_kitchen.jpg',   label: 'Kitchen',         position: 'center 35%' },
+      { src: '/images/h3_hall.jpg',      label: 'Hall / Lounge',   position: 'center 50%' },
+    ],
+  },
+  {
+    id: 5,
+    title: 'NA GDA Plots in Layout',
+    location: 'Kalaburagi, Karnataka',
+    price: 'Contact for Price',
+    type: 'Plots',
+    area: 'NA & GDA Approved',
+    badge: 'New Launch',
+    category: 'Plots',
+    images: [
+      { src: '/images/plot1_layout_view.jpg',  label: 'Layout View',           position: 'center 50%' },
+      { src: '/images/plot1_gate.jpg',          label: 'Main Gate',             position: 'center 40%' },
+      { src: '/images/plot1_masterplan.jpg',    label: 'Master Plan',           position: 'center 50%' },
+      { src: '/images/plot1_park_fitness.jpg',  label: 'Fitness Park',          position: 'center 50%' },
+      { src: '/images/plot1_park_play.jpg',     label: "Children's Play Area",  position: 'center 50%' },
+    ],
   },
 ]
 
-const FILTERS = ['All', '2BHK']
+const FILTERS = ['All', '2BHK', 'Apartment', 'Resale', 'Plots']
 
 export default function FeaturedProperties() {
   const [activeFilter, setActiveFilter] = useState('All')
@@ -67,8 +128,8 @@ export default function FeaturedProperties() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Beautifully designed independent 2BHK homes in prime Kalaburagi
-            locations — ready to move in. Quality construction, transparent deals.
+            Homes, flats, plots &amp; more — handpicked properties in Kalaburagi's
+            finest locations. Quality construction, 100% transparent dealings.
           </motion.p>
         </div>
 
